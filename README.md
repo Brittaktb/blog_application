@@ -1,7 +1,31 @@
-# blog_application
+# Building a Blog Application step by step:
 
-Using the guide shared in the #extra-resources channel build a blog website using Django.
-Be keen to understand all lines of code(i.e don't just copy-paste, type them out)
-Read the explanations of the code used in the examples
-Chapters 1-2 cover a lot of the basic stuff that will help you with Django, if you want to dive into Chapter 3 feel free to do so
-You should create a GitHub repository on your GitHub profile for this and share it with me.
+A)
+• Installing Python
+• Creating a Python virtual environment
+• Installing Django
+• Creating and configuring a Django project
+• Building a Django application
+• Designing data models
+• Creating and applying model migrations
+• Creating an administration site for your models
+
+B)
+• Using canonical URLs for models
+• Creating SEO-friendly URLs for posts
+• Adding pagination to the post list view
+• Building class-based views
+• Sending emails with Django
+• Using Django forms to share posts via email
+• Adding comments to posts using forms from models
+
+C) not implemented yet
+• Integrating third-party applications
+• Using django-taggit to implement a tagging system
+• Building complex QuerySets to recommend similar posts
+• Creating custom template tags and filters to show a list of the latest posts and most commented
+posts in the sidebar
+• Creating a sitemap using the sitemap framework
+• Building an RSS feed using the syndication framework
+• Installing PostgreSQL
+• Implementing a full-text search engine with Django and PostgreSQL
