@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Post, Comment
+from .models import Post, Comment, Count
 from django.core.paginator import Paginator, EmptyPage,\
                                   PageNotAnInteger
 from django.views.generic import ListView
@@ -99,11 +99,19 @@ def post_detail(request, year, month, day, post):
     comments = post.comments.filter(active=True)
     # Form for users to comment
     form = CommentForm()
+    
+    # List of similar posts
+    post_tags_ids = post.tags.values_list('id', flat=True) # flat = True get single values 1,2,3 instead of tuples (1,), (2,) etc.
+    similar_posts = Post.published.filter(tags__in=post_tags_ids)\
+        .exclude(id=post.id) # exclude the current post itself
+    similar_posts = similar_posts.annotate(same_tags=Count('tags'))\
+        .order_by('-same_tags','-publish')[:4]
     return render(request,
                   'blog/post/detail.html',
                   {'post': post,
                    'comments': comments,
-                   'form': form})
+                   'form': form,
+                   'similar_posts': similar_posts})
 
 
 
